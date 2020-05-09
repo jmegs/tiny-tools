@@ -1,0 +1,80 @@
+.Easing {
+  --dotSize: 36px;
+  --padding: 16px;
+  --columns: 2;
+  --columnWidth: calc(100vw / var(--columns));
+  --moveToEdge: calc(
+    var(--columnWidth) - var(--dotSize) - (var(--padding) * 2)
+  );
+
+  grid-column: span 6;
+  cursor: pointer;
+  height: calc(((100vw - 56px) / var(--columns)) - 0.5px);
+
+  @media (min-width: 480px) {
+    --pading: 32px;
+    --columns: 3;
+    grid-column: span 4;
+  }
+
+  @media (min-width: 1280px) {
+    --columns: 4;
+    grid-column: span 3;
+  }
+}
+
+.Easing-inner {
+  height: 100%;
+  padding: var(--padding);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  place-self: stretch;
+}
+
+.Easing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Easing-dot {
+  animation-duration: 3000ms;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  background: black;
+  grid-row: content;
+  height: var(--dotSize);
+  transition-duration: 800ms;
+  transition-property: all;
+  width: var(--dotSize);
+  transition-timing-function: var(--curve);
+  animation-timing-function: var(--curve);
+}
+
+.Easing:hover .Easing-dot {
+  animation-name: metronome;
+}
+
+@keyframes metronome {
+  0% {
+    transform: translateX(0);
+  }
+  45%,
+  55% {
+    transform: translateX(var(--moveToEdge));
+  }
+  90%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.Easing-footer {
+  visibility: hidden;
+}
+
+.Easing-footer.isShown {
+  visibility: initial;
+}

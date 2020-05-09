@@ -1,0 +1,25 @@
+@import "reset";
+@import "grid";
+@import "easing";
+@import "ratio";
+
+.Container {  
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.Navbar {
+  height: 56px;
+  border-inline-start: 2px solid black;
+  border-inline-end: 2px solid black;
+  border-block-start: 2px solid black;
+  grid-column: 1;
+}
+
+.UnstyledButton {
+  all: unset;
+  height: 100%;
+  width: 100%;
+}
+

@@ -1,0 +1,26 @@
+.Grid {
+  border-inline-start: 2px solid black;
+  border-block-start: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  & > * {
+    border-inline-end: 2px solid black;
+    border-block-end: 2px solid black;
+  }
+}
+
+.Grid--easing {
+  min-height: 100%;
+  // grid-auto-rows: calc(((100vh - 56px) / 3) - 0.5px);
+  // @media (max-width: 480px) {
+  //   grid-auto-rows: calc(((100vh - 56px) / 4) - 0.5px);
+  // }
+}
+
+.Grid--ratio {
+  height: 100%;
+}
+
+.Grid--spacer {
+}

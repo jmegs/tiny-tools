@@ -1,0 +1,87 @@
+.Ratio {
+}
+
+.Ratio-input {
+  grid-column: span 12;
+  grid-row: span 4;
+  padding: 16px;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  
+  @media (min-width: 480px) {
+    padding: 32px;
+    grid-column: span 6;
+    grid-row: span 8;
+  }
+}
+
+.Ratio-input label {
+  text-transform: capitalize;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.Ratio-input label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -16px;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  background: #35d0ba;
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.Ratio-input.isActive label::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Ratio-input input {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-weight: 900;
+  font-size: 75px;
+  @media (min-width: 768px) {
+    font-size: 120px;
+  }
+
+  &::placeholder {
+    color: #e6e6e6;
+  }
+}
+
+.Ratio-button {
+  grid-column: span 6;
+  grid-row: span 2;
+  font-family: inherit;
+  padding: 24px;
+  background: white;
+  font-weight: 500;
+  font-size: 32px;
+  cursor: pointer;
+  transition: all 250ms;
+  
+  @media (min-width: 480px) {
+    grid-column: span 3;
+    grid-row: span 4;
+  }
+
+  &:focus,
+  &:active,
+  &.isActive {
+    border-color: black;
+    border-radius: 0;
+    background: black;
+    color: white;
+    outline: 0;
+  }
+}
