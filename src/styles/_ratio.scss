@@ -1,6 +1,3 @@
-.Ratio {
-}
-
 .Ratio-input {
   --padding: 16px;
   grid-column: span 12;
@@ -61,6 +58,11 @@
 }
 
 .Ratio-button {
+  // annihalate user agent styles on the borders
+  // unnaffected by the grid styles
+  border-inline-start: none;
+  border-block-start: none;
+  margin: 0;
   grid-column: span 6;
   grid-row: span 2;
   font-family: inherit;

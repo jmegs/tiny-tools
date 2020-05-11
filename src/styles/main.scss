@@ -1,21 +1,36 @@
 @import "reset";
 @import "grid";
+@import "navbar";
 @import "easing";
 @import "ratio";
 @import "letterspacer";
 
-.Container {  
+
+.Container {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
 }
 
-.Navbar {
-  height: 56px;
-  border-inline-start: 2px solid black;
-  border-inline-end: 2px solid black;
-  border-block-start: 2px solid black;
-  grid-column: 1;
+.HomePage-link {
+  grid-column: span 6;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 40px;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: black;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 80px;
+    padding: 32px;
+    font-weight: 800; 
+  }
 }
 
 .UnstyledButton {
@@ -23,4 +38,3 @@
   height: 100%;
   width: 100%;
 }
-
