@@ -11,16 +11,11 @@
 }
 
 .Grid--easing {
-  min-height: 100%;
-  // grid-auto-rows: calc(((100vh - 56px) / 3) - 0.5px);
-  // @media (max-width: 480px) {
-  //   grid-auto-rows: calc(((100vh - 56px) / 4) - 0.5px);
-  // }
+  min-height: 100%; 
 }
 
-.Grid--ratio {
+.Grid--ratio,
+.Grid--letterspacer {
   height: 100%;
-}
-
-.Grid--spacer {
+  grid-template-rows: repeat(12, 1fr);
 }

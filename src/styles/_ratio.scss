@@ -2,14 +2,15 @@
 }
 
 .Ratio-input {
+  --padding: 16px;
   grid-column: span 12;
   grid-row: span 4;
-  padding: 16px;
+  padding: var(--padding);
   display: grid;
   grid-template-rows: min-content 1fr;
   
   @media (min-width: 480px) {
-    padding: 32px;
+    --padding: 32px;
     grid-column: span 6;
     grid-row: span 8;
   }
@@ -26,7 +27,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  left: -16px;
+  right: var(--padding);
   height: 8px;
   width: 8px;
   border-radius: 100%;
