@@ -15,7 +15,8 @@
 }
 
 .Grid--ratio,
-.Grid--letterspacer {
+.Grid--letterspacer,
+.Grid--about {
   height: 100%;
   grid-template-rows: repeat(12, 1fr);
 }

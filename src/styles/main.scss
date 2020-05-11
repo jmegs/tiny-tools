@@ -38,3 +38,31 @@
   height: 100%;
   width: 100%;
 }
+
+.About > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
+
+}
+
+.About-blurb {
+  grid-column: span 9;
+  height: 100%;
+  font-size: 30px;  
+  font-weight: 600;
+
+  & > * {
+    max-width: 45ch;
+  }
+}
+
+.About-credits {
+  grid-column: span 3;
+  height: 100%;
+}

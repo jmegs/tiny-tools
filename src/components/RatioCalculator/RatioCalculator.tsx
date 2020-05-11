@@ -25,7 +25,7 @@ const RatioInput: React.FC<InputProps> = ({
     <div className={cx}>
       <label htmlFor={label}>{label}</label>
       <input
-        type="text"
+        type="number"
         value={value}
         id={label}
         placeholder="Value"
