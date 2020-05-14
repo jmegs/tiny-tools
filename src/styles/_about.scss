@@ -1,29 +1,38 @@
 .About > * {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   padding: 16px;
-
+  
+  grid-column: 1 / -1;
+  
   @media (min-width: 768px) {
+    justify-content: flex-end;
     padding: 32px;
   }
 
 }
 
 .About-blurb {
-  grid-column: span 9;
   height: 100%;
   font-size: 30px;  
   line-height: 1.5;
-
+  
   & > * {
     max-width: 45ch;
   }
+  
+  @media (min-width: 480px) {
+    grid-column: span 9;
+  }
+  
 }
 
 .About-credits {
   line-height: 1.5;
-  text-align: right;
-  grid-column: span 3;
   height: 100%;
+  
+  @media (min-width: 768px) {
+    text-align: right;
+    grid-column: span 3;
+  }
 }
