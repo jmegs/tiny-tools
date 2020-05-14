@@ -36,7 +36,6 @@ const LetterSpacer = () => {
           Input
         </label>
         <input
-          className="LetterSpacer-input"
           id="input"
           placeholder="Type Something…"
           onChange={e => handleChange(e.target.value)}
