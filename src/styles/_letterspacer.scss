@@ -25,9 +25,6 @@
   font-family: inherit;
   width: 100%;
   font-size: 75px;
-  @media (min-width: 768px) {
-    font-size: 120px;
-  }
   
   &::placeholder {
     color: var(--foreground);
@@ -38,6 +35,7 @@
   border: 0;
   outline: 0;
   background: none;
+  color: var(--foreground);
 }
 
 .LetterSpacer-output {
