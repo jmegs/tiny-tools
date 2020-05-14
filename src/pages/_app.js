@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <DefaultSeo
         title="Tiny Tools"
-        description="Tools to solve tiny repetitive design problems"
+        description="Tools to solve tiny repetitive design problems including an aspect ratio calculator, easing curve reference, and letterspacing utility."
         cannonical="https://tinytools.design"
         openGraph={{
           type: "website",

@@ -9,7 +9,7 @@ const EasingPage = () => {
     <Layout>
       <NextSeo
         title="Easing • Tiny Tools"
-        description="Preview and copy CSS transition timing curves"
+        description="Preview and copy CSS transition easing curves"
       />
       <EasingCurves />
     </Layout>
