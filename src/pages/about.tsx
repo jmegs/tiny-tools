@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo"
 const AboutPage = () => {
   return (
     <Layout>
-      <NextSeo title="About" titleTemplate="%s • Tiny Tools" />
+      <NextSeo title="About • Tiny Tools" />
       <div className="Grid About">
         <div className="About-blurb">
           <p>
