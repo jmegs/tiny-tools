@@ -1,10 +1,14 @@
 import React from "react"
 import Layout from "../components/Layout"
-import NavBar from "../components/NavBar"
+import { NextSeo } from "next-seo"
 
 const AboutPage = () => {
   return (
     <Layout>
+      <NextSeo
+        title="About"
+        titleTemplate="%s • Tiny Tools" 
+        />
       <div className="Grid About">
         <div className="About-blurb">
           <p>

@@ -1,0 +1,20 @@
+.HomePage-link {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 40px;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: var(--active-background);
+    color: var(--active-foreground);
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 80px;
+    padding: 32px;
+    font-weight: 800; 
+  }
+}

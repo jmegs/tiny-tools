@@ -1,16 +1,22 @@
 import React from "react"
-import PropTypes from "prop-types"
 import copy from "copy-to-clipboard"
 import { Copy } from "react-feather"
 
 import easings from "./easings.json"
 
-const Easing = props => {
+interface EasingProps {
+  /** the camelCased name of the animation */
+  name: string
+  /** the css string that defines the animation curve */
+  curve: string
+}
+
+const Easing = (props: EasingProps) => {
   const [showSuccess, setShowSuccess] = React.useState(false)
 
   /** copies the passed curve to the clipboard and flashes a confirmation
    * @param {string} curve the css curve to be copied to the clipboard */
-  
+
   const handleClick = curve => {
     if (copy(curve)) {
       setShowSuccess(true)
@@ -19,6 +25,9 @@ const Easing = props => {
       }, 1500)
     }
   }
+
+  // because custom properties are not defined as regular css properties
+  let style = { "--curve": props.curve } as React.CSSProperties
 
   return (
     <div className="Easing">
@@ -32,7 +41,8 @@ const Easing = props => {
             {props.name}
             <Copy />
           </header>
-          <div className="Easing-dot" style={{ "--curve": props.curve }} />
+          {/* ts-ignore */}
+          <div className="Easing-dot" style={style} />
           <footer className={`Easing-footer ${showSuccess ? "isShown" : ""}`}>
             Copied to Clipboard
           </footer>
@@ -40,13 +50,6 @@ const Easing = props => {
       </button>
     </div>
   )
-}
-
-Easing.propTypes = {
-  /** the camelCased name of the animation */
-  name: PropTypes.string.isRequired,
-  /** the css string that defines the animation curve */
-  curve: PropTypes.string.isRequired,
 }
 
 const EasingCurves = () => {

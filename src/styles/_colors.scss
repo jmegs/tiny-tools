@@ -1,0 +1,25 @@
+body {
+  --foreground: #212529;
+  --background: #ffffff;
+  --muted: #adb5bd;
+  --green: #35d0ba;
+  --border-color: #212529;
+  
+  --active-background: #212529;
+  --active-foreground: #ffffff;
+  
+  --border: 2px solid var(--border-color);
+  
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+body.dark-mode {
+  --foreground: #ffffff;
+  --background: #212529;
+  --muted: #868e96;
+  --border-color: #495057;
+  
+  --active-background: #343a40;
+  --active-foreground: #ffffff;
+}

@@ -10,13 +10,10 @@ const IndexPage = () => (
         <a className="HomePage-link">Easing Curves</a>
       </Link>
       <Link href="/ratio">
-        <a className="HomePage-link">Aspect Ratio</a>
+        <a className="HomePage-link">Aspect Ratios</a>
       </Link>
       <Link href="/letterspacer">
-        <a className="HomePage-link">Letterspacer</a>
-      </Link>
-      <Link href="/">
-        <a className="HomePage-link">Scales</a>
+        <a className="HomePage-link">Letterspacing</a>
       </Link>
     </div>
   </Layout>

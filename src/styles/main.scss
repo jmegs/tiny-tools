@@ -1,68 +1,9 @@
 @import "reset";
+@import "colors";
 @import "grid";
-@import "navbar";
+@import "layout";
+@import "homepage";
 @import "easing";
 @import "ratio";
 @import "letterspacer";
-
-
-.Container {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  min-height: 100vh;
-}
-
-.HomePage-link {
-  grid-column: span 6;
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  font-size: 40px;
-  text-decoration: none;
-
-  &:hover {
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    background-color: black;
-    color: white;
-  }
-  
-  @media (min-width: 768px) {
-    font-size: 80px;
-    padding: 32px;
-    font-weight: 800; 
-  }
-}
-
-.UnstyledButton {
-  all: unset;
-  height: 100%;
-  width: 100%;
-}
-
-.About > * {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-
-  @media (min-width: 768px) {
-    padding: 32px;
-  }
-
-}
-
-.About-blurb {
-  grid-column: span 9;
-  height: 100%;
-  font-size: 30px;  
-  font-weight: 600;
-
-  & > * {
-    max-width: 45ch;
-  }
-}
-
-.About-credits {
-  grid-column: span 3;
-  height: 100%;
-}
+@import "about";

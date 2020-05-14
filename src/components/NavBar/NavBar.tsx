@@ -1,16 +1,22 @@
-import React, { ReactElement, FC } from "react"
+import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { ArrowLeft, Info } from "react-feather"
+import useDarkMode from "use-dark-mode"
+
+import * as Icons from "../Icons"
 
 interface ButtonProps {
   icon: React.FC
   href: string
 }
+
 const NavButton = ({ icon, href }: ButtonProps) => {
   const IconComponent = icon
+  const router = useRouter()
+  const isActive = router.pathname === href
+
   return (
-    <div className="NavBar-button">
+    <div className={`NavBar-button ${isActive ? "isActive" : ""}`}>
       <Link href={href}>
         <a>
           <IconComponent />
@@ -20,19 +26,28 @@ const NavButton = ({ icon, href }: ButtonProps) => {
   )
 }
 
-const NavTitle = () => (
-  <div className="NavBar-title">
-    <h1>Name Plz</h1>
-  </div>
-)
+const DarkModeButton = () => {
+  const darkMode = useDarkMode(false)
+  
+  return (
+    <div className="NavBar-button">
+      <button className="UnstyledButton" onClick={darkMode.toggle}>
+        { darkMode.value ? <Icons.Sun /> : <Icons.Moon />}
+      </button>
+    </div>
+  )
+}
 
 const NavBar = () => {
-  const router = useRouter()
-  const areWeHome = router.pathname === "/"
   return (
     <div className="NavBar">
-      {areWeHome ? <NavTitle /> : <NavButton icon={ArrowLeft} href="/" />}
-      <NavButton icon={Info} href="/about" />
+      <NavButton href="/" icon={Icons.Home} />
+      <NavButton href="/ratio" icon={Icons.Ratio} />
+      <NavButton href="/easing" icon={Icons.Curve} />
+      <NavButton href="/letterspacer" icon={Icons.Spacer} />
+      <div className="NavBar-flexSpace" />
+      <DarkModeButton />
+      <NavButton href="/about" icon={Icons.Help} />
     </div>
   )
 }

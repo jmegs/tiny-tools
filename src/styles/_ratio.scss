@@ -20,11 +20,12 @@
   align-items: center;
 }
 
-.Ratio-input label::before {
+.Ratio-label::after {
   content: "";
   display: inline-block;
   position: absolute;
-  right: calc(var(--padding) / 2);
+  top: calc(50% - 4px);
+  margin-left: 4px;
   height: 8px;
   width: 8px;
   border-radius: 100%;
@@ -35,7 +36,7 @@
   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.Ratio-input.isActive label::before {
+.Ratio-input.isActive .Ratio-label::after {
   opacity: 1;
   transform: scale(1);
 }
@@ -51,29 +52,29 @@
   border: 0;
   outline: 0;
   background: none;
-  font-weight: 900;
+  color: var(--foreground);
   font-size: 75px;
   @media (min-width: 768px) {
     font-size: 120px;
   }
 
   &::placeholder {
-    color: #e6e6e6;
+    color: var(--muted);
   }
 }
 
 .Ratio-button {
-  // annihalate user agent styles on the borders
+  // annihilate user agent styles on the borders
   // unnaffected by the grid styles
-  border-inline-start: none;
-  border-block-start: none;
+  border-left: none;
+  border-top: none;
   margin: 0;
   grid-column: span 6;
   grid-row: span 2;
   font-family: inherit;
   padding: 24px;
-  background: white;
-  font-weight: 500;
+  background: var(--background);
+  color: var(--foreground);
   font-size: 32px;
   cursor: pointer;
   transition: all 250ms;
@@ -86,10 +87,10 @@
   &:focus,
   &:active,
   &.isActive {
-    border-color: black;
+    border-color: var(--foreground);
     border-radius: 0;
-    background: black;
-    color: white;
+    background: var(--active-background);
+    color: var(--active-foreground);
     outline: 0;
   }
 }

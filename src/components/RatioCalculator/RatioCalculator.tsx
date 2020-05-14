@@ -1,5 +1,5 @@
 import useRatio, { RatioLabel, Ratio, RATIOS } from "../../hooks/useRatio"
-import React, { ChangeEvent, ReactElement } from "react"
+import React from "react"
 
 type InputProps = {
   value: string
@@ -23,7 +23,9 @@ const RatioInput: React.FC<InputProps> = ({
   const cx = `Ratio-input ${active ? "isActive" : ""}`
   return (
     <div className={cx}>
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={label}>
+        <span className="Ratio-label">{label}</span>
+      </label>
       <input
         type="number"
         value={value}
@@ -47,7 +49,7 @@ const RatioButton: React.FC<ButtonProps> = ({
       {children}
     </button>
   )
-} 
+}
 
 const RatioCalculator = () => {
   const {
