@@ -87,7 +87,7 @@
   &:focus,
   &:active,
   &.isActive {
-    border-color: var(--foreground);
+    border-color: var(--border-color);
     border-radius: 0;
     background: var(--active-background);
     color: var(--active-foreground);
