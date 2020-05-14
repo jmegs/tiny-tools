@@ -5,17 +5,14 @@ import { NextSeo } from "next-seo"
 const AboutPage = () => {
   return (
     <Layout>
-      <NextSeo
-        title="About"
-        titleTemplate="%s • Tiny Tools" 
-        />
+      <NextSeo title="About" titleTemplate="%s • Tiny Tools" />
       <div className="Grid About">
         <div className="About-blurb">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-            sapiente officiis adipisci minus obcaecati delectus rerum enim,
-            iusto repellat tenetur laboriosam. Aspernatur officiis placeat
-            cupiditate possimus magnam obcaecati, illo deserunt.
+            Product designers encounter little moments of friction every day –
+            figuring out the height of that 16x9 image, remembering what
+            "ease-in-expo" looks like, formatting text in Google Slides. Tiny
+            Tools is my attempt to solve those little moments of friction.
           </p>
         </div>
         <div className="About-credits">
