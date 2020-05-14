@@ -31,12 +31,12 @@ const Easing = (props: EasingProps) => {
 
   return (
     <div className="Easing">
+      <div className="Easing-inner">
       <button
         onClick={() => handleClick(props.curve)}
         title="Click to Copy"
         className="UnstyledButton"
       >
-        <div className="Easing-inner">
           <header className="Easing-header">
             {props.name}
             <Copy />
@@ -46,8 +46,8 @@ const Easing = (props: EasingProps) => {
           <footer className={`Easing-footer ${showSuccess ? "isShown" : ""}`}>
             Copied to Clipboard
           </footer>
-        </div>
       </button>
+          </div>
     </div>
   )
 }

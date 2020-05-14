@@ -1,5 +1,6 @@
 import { DefaultSeo } from "next-seo"
 import { useRouter } from "next/router"
+
 import "../styles/main.scss"
 
 export default function MyApp({ Component, pageProps }) {

@@ -6,21 +6,26 @@
     var(--columnWidth) - var(--dotSize) - (var(--padding) * 2)
   );
   cursor: pointer;
+  height: 100%;
  
   @media (min-width: 480px) {
     --padding: 32px;
   }
-
+  
+  button {
+    appearance: none;
+    display: block;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
+
 .Easing-inner {
+  padding: var(--padding);  
   height: 100%;
-  padding: var(--padding);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  place-self: stretch;
 }
 
 .Easing-header {
