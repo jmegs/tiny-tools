@@ -1,4 +1,5 @@
 import { DefaultSeo } from "next-seo"
+import Head from "next/head"
 import { useRouter } from "next/router"
 
 import "../styles/main.scss"
@@ -10,6 +11,9 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />  
+      </Head>
       <DefaultSeo
         title="Tiny Tools"
         description="Tools to solve tiny repetitive design problems"
