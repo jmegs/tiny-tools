@@ -1,7 +1,5 @@
 # Tiny Tools
 
-tiny tools for little design problems.
-
 ## Why
 
 Product designers encounter little moments of friction every day – figuring out the height of that 16x9 image, remembering what "ease-in-expo" looks like, formatting text in Google Slides. Tiny Tools is my attempt to solve those little moments of friction.
