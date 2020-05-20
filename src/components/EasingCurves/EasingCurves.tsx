@@ -1,6 +1,5 @@
 import React from "react"
 import copy from "copy-to-clipboard"
-import { Copy } from "react-feather"
 
 import easings from "./easings.json"
 
@@ -39,7 +38,6 @@ const Easing = (props: EasingProps) => {
       >
           <header className="Easing-header">
             {props.name}
-            <Copy />
           </header>
           {/* ts-ignore */}
           <div className="Easing-dot" style={style} />

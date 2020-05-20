@@ -19,31 +19,12 @@
 
 .Grid--easing {
   --colspan: 2;
+  width: 100%;
   grid-template-columns: repeat(var(--colspan), 1fr);
-  min-height: 100%; 
+  grid-auto-rows: calc(100vw / var(--colspan));
   align-content: start;
-  grid-auto-rows: 1fr;
-
-  // adds an invisible pseudo-element to the grid that is forced to a 
-  // square aspect ratio with padding-bottom and placed in the first grid slot
-  &::before {
-    content: "";
-    width: 0;
-    padding-bottom: 100%;
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
-  }
-
-  // then force the first child of the grid to occupy the "same" space as
-  // the zero width pseudo-element
-
-  & > *:first-child {
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
-  }
 
   @media (min-width: 480px) {
-    --padding: 32px;
     --colspan: 3;
   }
 
