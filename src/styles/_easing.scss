@@ -6,22 +6,22 @@
     var(--columnWidth) - var(--dotSize) - (var(--padding) * 2)
   );
   cursor: pointer;
-  height: 100%;
- 
+
   @media (min-width: 480px) {
     --padding: 32px;
   }
-  
-  button {
-    appearance: none;
-    display: block;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 }
 
+.Easing button {
+  appearance: none;
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .Easing-inner {
   padding: var(--padding);  
@@ -39,7 +39,7 @@
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   background: var(--foreground);
-  grid-row: content;
+  // grid-row: content;
   height: var(--dotSize);
   transition-duration: 800ms;
   transition-property: all;
@@ -59,6 +59,7 @@
   45%,
   55% {
     transform: translateX(var(--moveToEdge));
+    // transform: translateX(100%) translateX(-36px);
   }
   90%,
   100% {
