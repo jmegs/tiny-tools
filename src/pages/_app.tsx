@@ -2,10 +2,11 @@ import {useEffect} from "react"
 import { DefaultSeo } from "next-seo"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { AppProps } from "next/app"
 
 import "../styles/main.scss"
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
   const ogImageUrl =
     pathname === "/" ? "img/og-image.jpg" : `img${pathname}-og-image.jpg`
@@ -31,7 +32,6 @@ export default function MyApp({ Component, pageProps }) {
       <DefaultSeo
         title="Tiny Tools"
         description="Tools to solve tiny repetitive design problems including an aspect ratio calculator, easing curve reference, and letterspacing utility."
-        cannonical="https://tinytools.design"
         openGraph={{
           type: "website",
           locale: "en_US",
