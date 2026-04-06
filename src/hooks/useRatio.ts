@@ -1,58 +1,44 @@
-import React from "react"
+"use client"
 
-// creates a type that can only be one of the things in the RATIOS array
+import { useState, useEffect } from "react"
+
 export const RATIOS = ["16x9", "4x3", "3x2", "21x9"] as const
-export type Ratio = typeof RATIOS[any]
+export type Ratio = (typeof RATIOS)[number]
 
 export type RatioLabel = "width" | "height"
 
-type Factors = {
-  hFactor: number
-  wFactor: number
-}
-/**
- * Takes a written ratio and returns the width and height factors
- * @param {Ratio} ratio an aspect ratio written like "16x9"
- * @returns {Factors} the width and height factors e.x. {wFactor, hFactor}
- */
-function getFactors(ratio: Ratio = "16x9"): Factors {
-  let [wFactor, hFactor] = ratio.split("x").map(part => parseInt(part))
-  return {wFactor, hFactor}
+function getFactors(ratio: Ratio = "16x9") {
+  const [wFactor, hFactor] = ratio.split("x").map((part) => parseInt(part))
+  return { wFactor, hFactor }
 }
 
-function useRatio() {
-  const [width, setWidth] = React.useState("")
-  const [height, setHeight] = React.useState("")
-  const [value, setValue] = React.useState("")
-  const [active, setActive] = React.useState<"width" | "height">("width")
-  const [ratio, setRatio] = React.useState<Ratio>("16x9")
+export default function useRatio() {
+  const [width, setWidth] = useState("")
+  const [height, setHeight] = useState("")
+  const [value, setValue] = useState("")
+  const [active, setActive] = useState<"width" | "height">("width")
+  const [ratio, setRatio] = useState<Ratio>("16x9")
 
-  function getWidthFromHeight(height: any, ratio: Ratio): string {
-    let input = parseInt(height)
-    if (Number.isNaN(input)) {
-      return ""
-    }
+  function getWidthFromHeight(height: string, ratio: Ratio): string {
+    const input = parseInt(height)
+    if (Number.isNaN(input)) return ""
     const { wFactor, hFactor } = getFactors(ratio)
-    let output = Math.round((height / hFactor) * wFactor)
-    return output.toString()
+    return Math.round((input / hFactor) * wFactor).toString()
   }
 
-  function getHeightFromWidth(width: any, ratio: Ratio): string {
-    let input = parseInt(width)
-    if (Number.isNaN(input)) {
-      return ""
-    }
+  function getHeightFromWidth(width: string, ratio: Ratio): string {
+    const input = parseInt(width)
+    if (Number.isNaN(input)) return ""
     const { wFactor, hFactor } = getFactors(ratio)
-    let output = Math.round((width / wFactor) * hFactor)
-    return output.toString()
+    return Math.round((input / wFactor) * hFactor).toString()
   }
 
-  function onHeightChange(value: any): void {
+  function onHeightChange(value: string): void {
     setActive("height")
     setValue(value)
   }
 
-  function onWidthChange(value: any): void {
+  function onWidthChange(value: string): void {
     setActive("width")
     setValue(value)
   }
@@ -61,7 +47,7 @@ function useRatio() {
     setRatio(ratio)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setWidth(active === "height" ? getWidthFromHeight(value, ratio) : value)
     setHeight(active === "width" ? getHeightFromWidth(value, ratio) : value)
   }, [value, ratio])
@@ -76,5 +62,3 @@ function useRatio() {
     onRatioChange,
   }
 }
-
-export default useRatio

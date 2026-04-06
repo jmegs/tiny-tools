@@ -1,25 +1,18 @@
-import useRatio, { RatioLabel, Ratio, RATIOS } from "../../hooks/useRatio"
-import React from "react"
+"use client"
 
-type InputProps = {
-  value: string
-  label: RatioLabel
-  active: boolean
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
+import useRatio, { type RatioLabel, type Ratio, RATIOS } from "@/hooks/useRatio"
 
-type ButtonProps = {
-  currentRatio: Ratio
-  ratio: Ratio
-  onClick: (MouseEvent) => void
-}
-
-const RatioInput: React.FC<InputProps> = ({
+function RatioInput({
   value,
   label,
   active,
   onChange,
-}) => {
+}: {
+  value: string
+  label: RatioLabel
+  active: boolean
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}) {
   const cx = `Ratio-input ${active ? "isActive" : ""}`
   return (
     <div className={cx}>
@@ -37,12 +30,17 @@ const RatioInput: React.FC<InputProps> = ({
   )
 }
 
-const RatioButton: React.FC<ButtonProps> = ({
+function RatioButton({
   currentRatio,
   ratio,
   onClick,
   children,
-}) => {
+}: {
+  currentRatio: Ratio
+  ratio: Ratio
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  children: React.ReactNode
+}) {
   const cx = `Ratio-button ${ratio === currentRatio ? "isActive" : ""}`
   return (
     <button className={cx} onClick={onClick} data-ratio={ratio}>
@@ -51,7 +49,7 @@ const RatioButton: React.FC<ButtonProps> = ({
   )
 }
 
-const RatioCalculator = () => {
+export default function RatioCalculator() {
   const {
     width,
     height,
@@ -67,30 +65,29 @@ const RatioCalculator = () => {
       <RatioInput
         label="width"
         value={width}
-        onChange={e => onWidthChange(e.target.value)}
+        onChange={(e) => onWidthChange(e.target.value)}
         active={active === "width"}
       />
       <RatioInput
         label="height"
         value={height}
-        onChange={e => onHeightChange(e.target.value)}
+        onChange={(e) => onHeightChange(e.target.value)}
         active={active === "height"}
       />
-      {RATIOS.map(r => {
-        return (
-          <RatioButton
-            currentRatio={ratio}
-            ratio={r}
-            data-ratio={r}
-            key={r}
-            onClick={e => onRatioChange(e.target.dataset.ratio)}
-          >
-            {r}
-          </RatioButton>
-        )
-      })}
+      {RATIOS.map((r) => (
+        <RatioButton
+          currentRatio={ratio}
+          ratio={r}
+          key={r}
+          onClick={(e) =>
+            onRatioChange(
+              (e.target as HTMLButtonElement).dataset.ratio as Ratio
+            )
+          }
+        >
+          {r}
+        </RatioButton>
+      ))}
     </div>
   )
 }
-
-export default RatioCalculator
